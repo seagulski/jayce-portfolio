@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayce Schmidtknecht | Manufacturing Engineering Manager</title>
+  <meta name="description" content="Jayce Schmidtknecht - Manufacturing Engineering Manager specializing in Lean Manufacturing, Continuous Improvement, and OEE optimization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg: #fafaf9;
+      --color-text: #1c1917;
+      --color-text-secondary: #57534e;
+      --color-accent: #292524;
+      --color-border: #e7e5e4;
+      --color-surface: #ffffff;
+      --color-highlight: #d6d3d1;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 250, 249, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--color-border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--color-text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--color-text-secondary);
+    }
+
+    nav.scrolled .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    nav.scrolled .nav-links .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    nav.scrolled .nav-links .btn-primary:hover {
+      background: #44403c;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+    }
+
+    nav.scrolled .nav-toggle span {
+      background: var(--color-text);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.1);
+      will-change: transform;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(28, 25, 23, 0.45) 0%,
+        rgba(28, 25, 23, 0.55) 50%,
+        rgba(28, 25, 23, 0.7) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-text {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero .btn-primary {
+      background: #fff;
+      color: var(--color-text);
+    }
+
+    .hero .btn-primary:hover {
+      background: #f5f5f4;
+      transform: translateY(-1px);
+    }
+
+    .hero .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+
+    .hero .btn-secondary:hover {
+      border-color: #fff;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .hero-scroll a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll svg {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(6px); }
+      60% { transform: translateY(3px); }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #44403c;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 1.5px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-text);
+    }
+
+    /* Parallax effect */
+    .hero-bg img {
+      transition: transform 0.1s linear;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-portrait {
+      text-align: center;
+      margin-bottom: 3rem;
+      margin-top: -4rem;
+    }
+
+    .about-portrait img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--color-surface);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1.0625rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .timeline-date {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      padding-top: 0.25rem;
+    }
+
+    .timeline-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.375rem;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-company {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .timeline-details li {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .timeline-details li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.625rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-highlight);
+    }
+
+    /* Skills Section */
+    .skills {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .skill-category h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      padding: 0.5rem 1rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--color-text);
+      color: var(--color-text);
+    }
+
+    /* Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .education-card {
+      padding: 2.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .education-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .education-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-card .institution {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .education-card .year {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .education-card .detail {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      padding: 0.5rem 0.875rem;
+      background: var(--color-bg);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* Coffee Section */
+    .coffee {
+      background: var(--color-accent);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .coffee .section-label {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .coffee .section-title {
+      color: #fff;
+    }
+
+    .coffee-intro {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+
+    .coffee-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .coffee-category h3 {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .coffee-category h3 svg {
+      opacity: 0.5;
+    }
+
+    .coffee-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .coffee-list li {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+      padding-left: 1.25rem;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .coffee-list li:hover {
+      color: #fff;
+    }
+
+    .coffee-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .coffee-list .detail {
+      display: block;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 0.125rem;
+    }
+
+    .coffee-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .coffee-images .coffee-img {
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+
+    .coffee-images .coffee-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .coffee-images .coffee-img:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    .coffee-img-label {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 768px) {
+      .coffee-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .coffee-images {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Gallery Section */
+    .gallery {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 6px;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links.open a {
+        color: var(--color-text) !important;
+        font-size: 1.25rem;
+      }
+
+      .nav-links.open a:hover {
+        color: var(--color-text-secondary) !important;
+      }
+
+      .nav-links.open .btn-primary {
+        color: #fff !important;
+      }
+
+      .nav-toggle {
+        display: block;
+        z-index: 1000;
+      }
+
+      .nav-toggle.open span {
+        background: var(--color-text) !important;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .hero {
+        padding: 5rem 1.5rem 3rem;
+        min-height: 100vh;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-portrait {
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 2rem 0;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+        aspect-ratio: 1;
+      }
+
+      .gallery-item.wide {
+        grid-column: span 1;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-logo">JSK</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#coffee">Coffee</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="mailto:jayce.schmidtknecht@gmail.com" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Get In Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="public/Office.jpg" alt="Engineering workspace">
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-label">Manufacturing Engineering Manager</p>
+        <h1 class="hero-title">Jayce<br>Schmidtknecht</h1>
+        <p class="hero-description">Engineering leader driving operational excellence through Lean manufacturing, continuous improvement, and cross-functional collaboration.</p>
+        <div class="hero-cta">
+          <a href="mailto:jayce.schmidtknecht@gmail.com" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact Me
+          </a>
+          <a href="https://www.linkedin.com/in/jayceschmidtknecht" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            LinkedIn
+          </a>
+          <a href="public/resume.html" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Resume
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#about">
+        Scroll
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="about-portrait reveal">
+        <img src="public/jayce.jpg" alt="Jayce Schmidtknecht">
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="section-header">
+            <p class="section-label">About</p>
+            <h2 class="section-title">Building better processes,<br>leading stronger teams.</h2>
+          </div>
+          <div class="about-text">
+            <p>With over a decade of experience in mechanical and manufacturing engineering, I specialize in transforming production operations through data-driven decision making and Lean principles.</p>
+            <p>From managing $3.2M production lines to implementing ERP/MRP systems and automation, I bring a hands-on engineering mindset to leadership. I believe the best results come from empowering teams, optimizing processes, and never stopping the pursuit of improvement.</p>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">$2M+</div>
+              <div class="stat-label">Budget Managed</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">40%</div>
+              <div class="stat-label">Production Scope</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">ISO</div>
+              <div class="stat-label">9001 Certified</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">Where I've made an impact.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-date">Sept 2025 &mdash; June 2026</div>
+          <div class="timeline-content">
+            <h3>Manufacturing Engineering Manager</h3>
+            <p class="timeline-company">AprilAire, Division of Research Products Corporation</p>
+            <ul class="timeline-details">
+              <li>Develop and manage Manufacturing Engineering and Maintenance functional areas responsible for Overall Equipment Effectiveness (OEE) of the entire air filtration production</li>
+              <li>Manage functional area budget of $2+ million annually, reducing variance while achieving production and continuous improvement goals</li>
+              <li>Lead and support cross-functional continuous improvement projects in safety, quality, and new product development</li>
+              <li>Create, review, and approve acquisition requests for plant-wide capital investments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-date">May 2019 &mdash; Sept 2025</div>
+          <div class="timeline-content">
+            <h3>Manufacturing Manager</h3>
+            <p class="timeline-company">Extreme Engineering Solutions, Inc.</p>
+            <ul class="timeline-details">
+              <li>Develop, manage, and train a team responsible for up to 40%, $3.2 million annually, of product used in downstream assemblies and internal prototyping</li>
+              <li>Implement large-scale projects including ERP/MRP software and automation systems using PLC programming, robotics, and CNC milling machines</li>
+              <li>Coordinate professional development opportunities in communication and Lean practices</li>
+              <li>Establish and monitor KPIs in efficiency, utilization, quality, and on-time delivery</li>
+              <li>Maintain ISO 9001 compliance through routine audits</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-date">May 2016 &mdash; May 2019</div>
+          <div class="timeline-content">
+            <h3>Mechanical Engineer</h3>
+            <p class="timeline-company">Extreme Engineering Solutions, Inc.</p>
+            <ul class="timeline-details">
+              <li>Supervise as the lead programmer, peer reviewer, and trainer of CAM software</li>
+              <li>Design thermal management systems, structural enclosures, and production fixturing using standard GD&T practices</li>
+              <li>Liaise between Mechanical Engineering and Machine Shop on design improvements</li>
+              <li>Research vendors for MIL-SPEC metal plating and painting operations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills" id="skills">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <p class="section-label">Expertise</p>
+        <h2 class="section-title">What I bring to the table.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3>Manufacturing</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Lean Manufacturing</span>
+            <span class="skill-tag">Continuous Improvement</span>
+            <span class="skill-tag">OEE</span>
+            <span class="skill-tag">Process Optimization</span>
+            <span class="skill-tag">Production Planning</span>
+          </div>
+        </div>
+        <div class="skill-category reveal" style="transition-delay: 0.1s;">
+          <h3>Engineering</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Mechanical Engineering</span>
+            <span class="skill-tag">Manufacturing Engineering</span>
+            <span class="skill-tag">Product Design</span>
+            <span class="skill-tag">Root Cause Analysis</span>
+            <span class="skill-tag">Capital Projects</span>
+          </div>
+        </div>
+        <div class="skill-category reveal" style="transition-delay: 0.2s;">
+          <h3>Leadership</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Personnel Management</span>
+            <span class="skill-tag">Cross-Functional Collaboration</span>
+            <span class="skill-tag">Coaching</span>
+            <span class="skill-tag">Budget Management</span>
+            <span class="skill-tag">Safety &amp; Quality</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <p class="section-label">Education &amp; Certifications</p>
+        <h2 class="section-title">Foundation of knowledge.</h2>
+      </div>
+      <div class="education-grid">
+        <div class="education-card reveal">
+          <h3>B.S. Mechanical Engineering</h3>
+          <p class="institution">University of Wisconsin&ndash;Madison</p>
+          <p class="year">May 2016</p>
+          <span class="detail">Certificate in Thermal Energy Systems</span>
+        </div>
+        <div class="education-card reveal" style="transition-delay: 0.1s;">
+          <h3>Six Sigma Green Belt</h3>
+          <p class="institution">In Progress</p>
+          <p class="year">Expected 2026</p>
+          <span class="detail">Process Improvement Methodology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coffee -->
+  <section class="coffee" id="coffee">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <p class="section-label">Passion Project</p>
+        <h2 class="section-title">Crafting the perfect cup.</h2>
+      </div>
+      <p class="coffee-intro reveal">Outside of engineering, I pour the same dedication into coffee. From dialing in espresso shots to perfecting pour-over ratios, I'm always chasing that next great cup. It's a daily ritual of precision, patience, and a little bit of art.</p>
+      <div class="coffee-grid">
+        <div class="coffee-category reveal">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            Brewers
+          </h3>
+          <ul class="coffee-list">
+            <li>Rancilio Silvia Espresso Machine<span class="detail">w/ PID temperature control</span></li>
+            <li>Hario V60</li>
+            <li>Hario Switch</li>
+            <li>Bialetti Moka Pots<span class="detail">3 and 6-cup</span></li>
+            <li>AeroPress</li>
+            <li>Chemex</li>
+          </ul>
+        </div>
+        <div class="coffee-category reveal" style="transition-delay: 0.15s;">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
+            Grinders
+          </h3>
+          <ul class="coffee-list">
+            <li>Eureka Mignon Specialita<span class="detail">Modified for single-dosing</span></li>
+            <li>Baratza Encore</li>
+            <li>Timemore Chestnut C2 Max</li>
+          </ul>
+        </div>
+      </div>
+      <div class="coffee-images reveal">
+        <div>
+          <div class="coffee-img"><img src="public/coffee/rancillio silvia.jpg" alt="Rancilio Silvia Espresso Machine" loading="lazy"></div>
+          <p class="coffee-img-label">Rancilio Silvia</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/hario v60.webp" alt="Hario V60" loading="lazy"></div>
+          <p class="coffee-img-label">Hario V60</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/chemex.jpg" alt="Chemex" loading="lazy"></div>
+          <p class="coffee-img-label">Chemex</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/eureka .jpg" alt="Eureka Mignon Specialita" loading="lazy"></div>
+          <p class="coffee-img-label">Eureka Mignon</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/aeropress.webp" alt="AeroPress" loading="lazy"></div>
+          <p class="coffee-img-label">AeroPress</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/bialetti moka pot.jpg" alt="Bialetti Moka Pot" loading="lazy"></div>
+          <p class="coffee-img-label">Bialetti Moka Pot</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/hario switch.jpg" alt="Hario Switch" loading="lazy"></div>
+          <p class="coffee-img-label">Hario Switch</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/baratza.jpg" alt="Baratza Encore" loading="lazy"></div>
+          <p class="coffee-img-label">Baratza Encore</p>
+        </div>
+        <div>
+          <div class="coffee-img"><img src="public/coffee/timemore chestnut.jpg" alt="Timemore Chestnut C2 Max" loading="lazy"></div>
+          <p class="coffee-img-label">Timemore C2 Max</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <p class="section-label">Beyond Work</p>
+        <h2 class="section-title">Life outside engineering.</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item tall">
+          <img src="public/photo-10.43.21.jpg" alt="Jayce and his wife" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.45.11.jpg" alt="Chicago skyline" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.44.25.jpg" alt="Lisbon waterfront" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.44.33.jpg" alt="Trevi Fountain, Rome" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.43.42.jpg" alt="Proposal" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.44.44.jpg" alt="Amalfi Coast at night" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="public/photo-10.45.24.jpg" alt="Chicago night" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <h2 class="footer-name">Let's connect.</h2>
+      <div class="footer-links">
+        <a href="mailto:jayce.schmidtknecht@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/jayceschmidtknecht" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Jayce Schmidtknecht. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect + parallax
+    const nav = document.querySelector('nav');
+    const heroBgImg = document.querySelector('.hero-bg img');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('scrolled', scrollY > 50);
+
+      // Parallax: move bg image slower than scroll
+      if (heroBgImg && scrollY < window.innerHeight) {
+        heroBgImg.style.transform = `translateY(${scrollY * 0.35}px) scale(1.1)`;
+      }
+    });
+
+    // Mobile menu toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

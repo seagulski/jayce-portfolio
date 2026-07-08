@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayce Schmidtknecht - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1c1917;
+      background: #f5f5f4;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: #fff;
+      padding: 0.6in 0.7in;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; margin: 0; padding: 0.5in 0.6in; }
+      .no-print { display: none !important; }
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #1c1917;
+      margin-bottom: 1.25rem;
+    }
+
+    .header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #57534e;
+      line-height: 1.6;
+    }
+
+    .header-contact a {
+      color: #57534e;
+      text-decoration: none;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1c1917;
+      border-bottom: 1px solid #d6d3d1;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.7rem;
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 0.85rem;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.125rem;
+    }
+
+    .job-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .job-date {
+      font-size: 0.75rem;
+      color: #57534e;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 0.8125rem;
+      color: #57534e;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 0.35rem;
+    }
+
+    .job-details {
+      list-style: none;
+    }
+
+    .job-details li {
+      font-size: 0.8rem;
+      color: #292524;
+      line-height: 1.45;
+      padding-left: 0.875rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+
+    .job-details li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: #a8a29e;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+    }
+
+    .skill-group h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-group p {
+      font-size: 0.75rem;
+      color: #57534e;
+      line-height: 1.5;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+    }
+
+    .edu-item h3 {
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+
+    .edu-item .institution {
+      font-size: 0.8rem;
+      color: #57534e;
+      font-style: italic;
+    }
+
+    .edu-item .year {
+      font-size: 0.75rem;
+      color: #78716c;
+    }
+
+    .edu-item .detail {
+      font-size: 0.75rem;
+      color: #57534e;
+      margin-top: 0.1rem;
+    }
+
+    /* Print button */
+    .print-bar {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #292524;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: #44403c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="print-btn" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Download as PDF / Print
+    </button>
+  </div>
+
+  <div class="page">
+    <div class="header">
+      <h1>Jayce Schmidtknecht</h1>
+      <div class="header-contact">
+        <a href="mailto:jayce.schmidtknecht@gmail.com">jayce.schmidtknecht@gmail.com</a><br>
+        <a href="https://www.linkedin.com/in/jayceschmidtknecht">linkedin.com/in/jayceschmidtknecht</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Manufacturing Engineering Manager</span>
+          <span class="job-date">Sept 2025 &ndash; June 2026</span>
+        </div>
+        <p class="job-company">AprilAire, Division of Research Products Corporation</p>
+        <ul class="job-details">
+          <li>Develop and manage Manufacturing Engineering and Maintenance functional areas responsible for Overall Equipment Effectiveness (OEE) of the entire air filtration production within AprilAire</li>
+          <li>Manage functional area budget of $2+ million annually. Reduce variance while achieving production and continuous improvement goals</li>
+          <li>Lead and support cross-functional continuous improvement projects in safety, quality, and new product development</li>
+          <li>Create, review, and approve acquisition requests for plant-wide capital investments</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Manufacturing Manager</span>
+          <span class="job-date">May 2019 &ndash; Sept 2025</span>
+        </div>
+        <p class="job-company">Extreme Engineering Solutions, Inc.</p>
+        <ul class="job-details">
+          <li>Develop, manage, and train a team responsible for up to 40%, $3.2 million annually, of product used in downstream assemblies and internal prototyping</li>
+          <li>Implement large-scale projects including ERP/MRP software and automation systems using PLC programming, robotics, and CNC milling machines</li>
+          <li>Coordinate professional development opportunities in communication and Lean practices</li>
+          <li>Establish and monitor KPIs in efficiency, utilization, quality, and on-time delivery</li>
+          <li>Maintain ISO 9001 compliance through routine audits</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Mechanical Engineer</span>
+          <span class="job-date">May 2016 &ndash; May 2019</span>
+        </div>
+        <p class="job-company">Extreme Engineering Solutions, Inc.</p>
+        <ul class="job-details">
+          <li>Supervise as the lead programmer, peer reviewer, and trainer of CAM software</li>
+          <li>Design thermal management systems, structural enclosures, and production fixturing using standard GD&T practices</li>
+          <li>Liaise between Mechanical Engineering and Machine Shop on design improvements</li>
+          <li>Research vendors for MIL-SPEC metal plating and painting operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Manufacturing</h3>
+          <p>Lean Manufacturing, Continuous Improvement, OEE, Process Optimization, Production Planning</p>
+        </div>
+        <div class="skill-group">
+          <h3>Engineering</h3>
+          <p>Mechanical Engineering, Manufacturing Engineering, Product Design, Root Cause Analysis, Capital Projects</p>
+        </div>
+        <div class="skill-group">
+          <h3>Leadership</h3>
+          <p>Personnel Management, Cross-Functional Collaboration, Coaching, Budget Management, Safety &amp; Quality</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Education &amp; Certifications</h2>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <h3>B.S. Mechanical Engineering</h3>
+          <p class="institution">University of Wisconsin&ndash;Madison</p>
+          <p class="year">May 2016</p>
+          <p class="detail">Certificate in Thermal Energy Systems</p>
+        </div>
+        <div class="edu-item">
+          <h3>Six Sigma Green Belt</h3>
+          <p class="institution">In Progress</p>
+          <p class="year">Expected 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
