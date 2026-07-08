@@ -355,6 +355,83 @@
       border-color: var(--color-text);
     }
 
+    /* Skip Navigation */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 200;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* Focus Styles */
+    *:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    .nav-links a:focus-visible {
+      outline-offset: 4px;
+    }
+
+    .hero .btn:focus-visible,
+    .hero-scroll a:focus-visible {
+      outline-color: #fff;
+    }
+
+    .coffee a:focus-visible,
+    .coffee *:focus-visible {
+      outline-color: #fff;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero-text {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+
+      .hero-scroll {
+        opacity: 1;
+        animation: none;
+      }
+
+      .hero-scroll svg {
+        animation: none;
+      }
+
+      .hero-bg img {
+        transform: none !important;
+      }
+    }
+
     /* Parallax effect */
     .hero-bg img {
       transition: transform 0.1s linear;
@@ -615,7 +692,7 @@
     }
 
     .coffee .section-label {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .coffee .section-title {
@@ -957,29 +1034,33 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navigation -->
-  <nav>
-    <a href="#" class="nav-logo">JS</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#coffee">Coffee</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="mailto:jayce.schmidtknecht@gmail.com" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Get In Touch</a></li>
+  <nav aria-label="Main navigation" role="navigation">
+    <a href="#" class="nav-logo" aria-label="Jayce Schmidtknecht - Home">JS</a>
+    <ul class="nav-links" id="nav-links" role="menubar">
+      <li role="none"><a href="#about" role="menuitem">About</a></li>
+      <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+      <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+      <li role="none"><a href="#education" role="menuitem">Education</a></li>
+      <li role="none"><a href="#coffee" role="menuitem">Coffee</a></li>
+      <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+      <li role="none"><a href="mailto:jayce.schmidtknecht@gmail.com" role="menuitem" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Get In Touch</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Toggle menu">
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </nav>
 
+  <main id="main-content">
+
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" aria-label="Introduction">
     <div class="hero-bg">
-      <img src="public/office.jpg" alt="Engineering workspace">
+      <img src="public/office.jpg" alt="" role="presentation">
     </div>
     <div class="hero-content">
       <div class="hero-text">
@@ -988,24 +1069,24 @@
         <p class="hero-description">Engineering leader driving operational excellence through Lean manufacturing, continuous improvement, and cross-functional collaboration.</p>
         <div class="hero-cta">
           <a href="mailto:jayce.schmidtknecht@gmail.com" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Contact Me
           </a>
           <a href="https://www.linkedin.com/in/jayceschmidtknecht" target="_blank" rel="noopener" class="btn btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
             LinkedIn
           </a>
           <a href="public/resume.html" target="_blank" class="btn btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             Resume
           </a>
         </div>
       </div>
     </div>
     <div class="hero-scroll">
-      <a href="#about">
+      <a href="#about" aria-label="Scroll down to About section">
         Scroll
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
       </a>
     </div>
   </section>
@@ -1180,7 +1261,7 @@
       <div class="coffee-grid">
         <div class="coffee-category reveal">
           <h3>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
             Brewers
           </h3>
           <ul class="coffee-list">
@@ -1194,7 +1275,7 @@
         </div>
         <div class="coffee-category reveal" style="transition-delay: 0.15s;">
           <h3>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
             Grinders
           </h3>
           <ul class="coffee-list">
@@ -1278,8 +1359,10 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-container">
       <h2 class="footer-name">Let's connect.</h2>
       <div class="footer-links">
@@ -1312,17 +1395,38 @@
     // Mobile menu toggle
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
+
+    function openMenu() {
+      toggle.classList.add('open');
+      links.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      links.querySelector('a').focus();
+    }
+
+    function closeMenu() {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
+
     toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      links.classList.toggle('open');
+      const isOpen = links.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && links.classList.contains('open')) {
+        closeMenu();
+        toggle.focus();
+      }
     });
 
     // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        links.classList.remove('open');
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     // Scroll reveal
