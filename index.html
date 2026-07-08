@@ -989,7 +989,7 @@
         <div class="reveal" style="transition-delay: 0.15s;">
           <div class="about-stats">
             <div class="stat">
-              <div class="stat-number">10+</div>
+              <div class="stat-number" id="years-exp"></div>
               <div class="stat-label">Years Experience</div>
             </div>
             <div class="stat">
@@ -1245,11 +1245,16 @@
         <a href="mailto:jayce.schmidtknecht@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/jayceschmidtknecht" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <p class="footer-copy">&copy; 2026 Jayce Schmidtknecht. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="copyright-year"></span> Jayce Schmidtknecht. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
+    // Auto-calculate years of experience and copyright year
+    const currentYear = new Date().getFullYear();
+    document.getElementById('years-exp').textContent = (currentYear - 2016) + '+';
+    document.getElementById('copyright-year').textContent = currentYear;
+
     // Nav scroll effect + parallax
     const nav = document.querySelector('nav');
     const heroBgImg = document.querySelector('.hero-bg img');
